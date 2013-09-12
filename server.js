@@ -1,5 +1,6 @@
 config = require('./lib/config');
-
+console.log(config);
+console.log("Got config" + config.tracking_port);
 var dashboard = require('./lib/dashboard');
 var tracker = require('./lib/tracker');
 var demo = require('./lib/demo');

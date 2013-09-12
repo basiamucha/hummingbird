@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Hummingbird</title>
+  <title>PIQ AD TRACKER</title>
 
   <meta name="description" content="Hummingbird is an open source real time analytics app.">
 
@@ -28,19 +28,20 @@
   <script src="js/widgets/count.js"></script>
   <script src="js/widgets/map.js"></script>
 
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="https://si0.twimg.com/profile_images/378800000025541821/dca2b393f69d53fb11168cbfceeed461_bigger.png" />
 </head>
 
 <body>
 
   <div class="topbar">
     <div class="header">
-      <h1>Hummingbird</h1>
+      <h1>PIQ Ad Tracker</h1>
 
       <div class="tagline">Real time web stats</div>
 
-      <button id="test_it">Send test traffic</button>
-      <button id="test_cart">Send "cart_add" event</button>
+      <!--<button id="test_it">Send test traffic</button>-->
+      <!-- <button id="test_cart">Send "cart_add" event</button> -->
+      <button id="test_seq">Send "test" event</button>
     </div>
 
     <div class="hummingbird_graph" id="total">
@@ -72,7 +73,7 @@
                                    bgLineColor: "#514e57",
                                    tickLineColor: "#64616a",
                                    lineColors: {
-                                     def: "#ac84ed"
+                                    def: "#ac84ed"
                                    },
                                    graphHeight: 80
                                  });
@@ -90,21 +91,15 @@
                              socket,
                              {
                                from: "view_totals",
-                               every: 500
+                              every: 500
                              });
 
-      $("#test_it").click(function(e) {
-        e.preventDefault();
+
+      $("#test_seq").click(function(e) {
+       e.preventDefault();
 
         var img = document.createElement('img');
-        img.src = "/tracking_pixel.gif?_=" + Math.random();
-      });
-
-      $("#test_cart").click(function(e) {
-        e.preventDefault();
-
-        var img = document.createElement('img');
-        img.src = "/tracking_pixel.gif?event=cart_add&_=" + Math.random();
+        img.src = "tracking_pixel.gif?events=cart_add&ip=12.232.43.121&creative_id=5&user_ip=12.232.43.121&seg_ids=6&cpg_codes=5&cpg_id=8&publisher_id=6&geo_lat=8&geo_lon=9&ext_app_id=10" + Math.random();
       });
     });
   </script>
